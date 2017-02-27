@@ -10,6 +10,7 @@ import datetime
 import pandas as pd
 
 from search import Search
+from permitted_users import permitted_users
 from email_functions import *
 
 class email_CH_API(Search):
@@ -22,12 +23,7 @@ class email_CH_API(Search):
 		self.input_folder = os.path.join(os.getcwd(),'input')
 		self.output_folder = os.path.join(os.getcwd(),'output')
 
-		self.permitted = ["william.tran.uk@gmail.com"
-					,"thintechdata@gmail.com"
-					,"alexmealing@gmail.com"
-					,"vyas9296@gmail.com"
-					,"christofichara@gmail.com"
-					]
+		self.permitted_users = permitted_users
 
 		self.credentials = {"username":os.environ["USERNAME"]
 					, "password":os.environ["PASSWORD"]
@@ -47,7 +43,7 @@ class email_CH_API(Search):
 			if info:
 				print info
 				email_address = get_email_from_string(info['From'])
-				if not is_email_permitted(email_address, self.permitted):
+				if not is_email_permitted(email_address, self.permitted_users):
 					continue
 				if not info['attachments']:
 					send_email_safely(self.credentials["username"], self.credentials["password"], info["From"]

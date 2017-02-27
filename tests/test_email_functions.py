@@ -40,7 +40,7 @@ def txt_file():
 
 @pytest.fixture
 def email_in_string():
-	return "thin tech data <thintechdata@gmail.com>"
+	return "test email <test@gmail.com>"
 
 @pytest.fixture
 def safe_subject_test():
@@ -83,7 +83,7 @@ def test_is_txt_csv(txt_file):
 	assert ef.is_txt_csv(txt_file)
 
 def test_get_email_from_string(email_in_string):
-	assert "thintechdata@gmail.com" == ef.get_email_from_string(email_in_string)
+	assert "test@gmail.com" == ef.get_email_from_string(email_in_string)
 
 def test_send_email_safely(user, wrong_password, user_email, safe_subject_test):
 	max_tries = ef.send_email_safely(user, wrong_password, user_email, safe_subject_test)

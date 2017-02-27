@@ -133,7 +133,8 @@ def send_email_safely(user, password, recipient, subject, text=None, files=None)
 			logging.exception('Sending output files') 
 			counter += 1
 	if counter == 4:
-		logging.exception('Attempted to send message 4 times and failed {}-{}-{}-{}'.format(recipient, subject, text, files))
+		today = datetime.datetime.today().strftime("%Y-%m-%d at %H:%M")
+		logging.exception('Attempted to send message 4 times and failed {}-{}-{}-{}-{}'.format(recipient, subject, text, files, today))
 		return counter
 
 def delete_email(user, password, subject):
