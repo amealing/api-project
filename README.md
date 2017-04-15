@@ -20,5 +20,5 @@ involved:
 - Handling errors from the API (which occasionally returned a timeout)
 
 Overall, a tough but really fun experience. This project was really
-fulfilling to complete and get working because it was built in response 
+fulfilling to complete because it was built in response 
 to a genuine need by an ex-colleague of mine. 
